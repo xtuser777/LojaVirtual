@@ -120,15 +120,15 @@ namespace LojaVirtual
             });
 
             //string connection = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LojaVirtual;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            string connection = "Server=localhost;Database=LojaVirtual;User Id=sa;Password=SqlServer2019!;";
+            string connection = "Server=mssql;Database=LojaVirtual;User Id=sa;Password=SqlServer2017!;";
             services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer(connection));
             
 
-            services.AddTransient<PedidoPagamentoSituacaoJob>();
-            services.AddTransient<PedidoEntregueJob>();
-            services.AddTransient<PedidoFinalizadoJob>();
-            services.AddTransient<PedidoDevolverEntregueJob>();
-            services.AddScheduler();
+            // services.AddTransient<PedidoPagamentoSituacaoJob>();
+            // services.AddTransient<PedidoEntregueJob>();
+            // services.AddTransient<PedidoFinalizadoJob>();
+            // services.AddTransient<PedidoDevolverEntregueJob>();
+            // services.AddScheduler();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -183,12 +183,12 @@ namespace LojaVirtual
             /*
              Scheduler - Coravel
              */
-            app.ApplicationServices.UseScheduler(scheduler => {
-                scheduler.Schedule<PedidoPagamentoSituacaoJob>().EveryTenSeconds();
-                scheduler.Schedule<PedidoEntregueJob>().EveryTenSeconds();
-                scheduler.Schedule<PedidoFinalizadoJob>().EveryTenSeconds();
-                scheduler.Schedule<PedidoDevolverEntregueJob>().EveryTenSeconds();
-            });
+            // app.ApplicationServices.UseScheduler(scheduler => {
+            //     scheduler.Schedule<PedidoPagamentoSituacaoJob>().EveryTenSeconds();
+            //     scheduler.Schedule<PedidoEntregueJob>().EveryTenSeconds();
+            //     scheduler.Schedule<PedidoFinalizadoJob>().EveryTenSeconds();
+            //     scheduler.Schedule<PedidoDevolverEntregueJob>().EveryTenSeconds();
+            // });
 
 
         }
