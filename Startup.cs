@@ -120,7 +120,7 @@ namespace LojaVirtual
             });
 
             //string connection = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LojaVirtual;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            string connection = "Server=mssql;Database=LojaVirtual;User Id=sa;Password=SqlServer2017!;";
+            string connection = "Server=db;Database=LojaVirtual;User Id=sa;Password=SqlServer2017!;";
             services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer(connection));
             
 
